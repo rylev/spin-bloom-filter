@@ -1,0 +1,15 @@
+spin_version = "1"
+authors = ["Fermyon Engineering <engineering@fermyon.com>"]
+description = "Your first Fermyon Cloud application"
+name = "cloud_start"
+trigger = { type = "http", base = "/" }
+version = "0.1.0"
+
+[[component]]
+id = "email"
+source = "/home/rylev/.cargo_target/wasm32-wasi/release/bloom_filter.wasm"
+key_value_stores = ["default"]
+[component.trigger]
+route = "/email"
+[component.build]
+command = "cargo build --target wasm32-wasi --release"
